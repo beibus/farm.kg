@@ -19,7 +19,7 @@ function App() {
       .then(res => res.json())
       .then(data => setComp(data.companies))
   }, []);
-
+console.log(comp);
   return (
     <>
     <header>
