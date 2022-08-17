@@ -76,11 +76,11 @@ console.log(comp);
           <div className='companies'>
 
             <div className='companiesNav'></div>
-            <div className='companie'>
+            <div className='companieRotate'>
               {comp.map(post => { return (
-                  <div className='companie'><p>{post.name}</p>
+                  <div className='companie'><h1>{post.name}</h1>
                   <img src={post.logoMainPage} alt={post.name}></img>
-                  <p>{text.companiesMore}</p></div>
+                  <h3>{text.companiesMore}</h3></div>
               )})}
             </div>
           </div>

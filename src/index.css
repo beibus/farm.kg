@@ -234,7 +234,14 @@ main {
 .companiesNav {
 
 }
-.companiesComponent {
+.companieRotate {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.companie {
   height: 510px;
   width: 285px;
 }
@@ -242,19 +249,22 @@ main {
   width: 119px;
   height: 43px;
 }
-.companieName p {
+.companie h1 {
+  display: flex;
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 700;
   font-size: 35px;
   line-height: 43px;
-  
   color: #2E401C;
 }
-.companieLogo {
-
+.companie img {
+  display: flex;
+  width: 285px;
+  height: 460px;
+  border-radius: 20px;
 }
-.companieMore {
+.companie h3 {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -265,6 +275,7 @@ main {
     height: 43.13px;
 }
 .contactsMain {
+    display: flex;
     width: 80%;
     height: 100vh;
     margin: 80px auto;
