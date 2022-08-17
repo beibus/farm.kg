@@ -1,8 +1,6 @@
+@import url(./components/fonts/stylesheet.css);
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,325 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  background: #337347;
+  z-index: 10;
+}
+.logo {
+  display: flex;
+  margin-left: 5%;
+ /* position: absolute;*/
+  width: 188.43px;
+  height: 54px;
+  left: 100px;
+  top: 8px;
+  /*background: url(./components/img/logo.svg);*/
+}
+.mainMenu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 54px;
+  width: 500px;
+}
+.mainMenu ul li {
+  display: inline-block;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.mainMenu a {
+  text-decoration: none;
+  color: white;
+}
+.mainMenu a:hover {
+  text-decoration: underline;
+}
+.search {
+  display: flex;
+  margin-left: 5%;
+}
+.language {
+  display: flex;
+  margin-right: 5%;
+}
+.language img {
+  width: 20px;
+  height: 20px;
+}
+main {
+  /*margin-top: 80px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content {
+  padding-top: 80px;
+}
+.componentPage {
+  display: flex;
+  height: 100vh;
+  
+}
+.arnamentLeft {
+  position: absolute;
+  width: 75px;
+  height: 100vh;
+  left: 3%;  
+  background: url(./components/img/arnament.svg) repeat-y;
+}
+  .arnamentRight {
+    position: absolute;
+    width: 75px;
+    height: 100vh;
+    right: 3%;  
+    background: url(./components/img/arnament.svg) repeat-y;
+  }
+  .homepageMain {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+  }
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 163px;
+    gap: 15px;
+  }
+  .mainContent h1 {
+    display: flex;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 79.7346px;
+    line-height: 99px;
+    color: #2E401C;
+    height: 99px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+  }
+  .mainContent h3 {
+    display: flex;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40.493px;
+    line-height: 49px;
+    color: #2E401C;
+    height: 49px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+  }
+  .mainBrandsPhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 396px;
+    gap: 20px;
+  }
+  .mainBrand1{
+    width: 190px;
+    height: 286px;
+    border-radius: 20px;
+    background: url(./components/img/mainBrand1.svg) no-repeat;
+  }
+  .mainBrand2{
+    width: 190px;
+    height: 286px;
+    border-radius: 20px;
+    background: url(./components/img/mainBrand2.svg) no-repeat;
+    align-self: flex-end;
+  }
+  .mainBrand3{
+    width: 190px;
+    height: 286px;
+    border-radius: 20px;
+    background: url(./components/img/mainBrand3.svg) no-repeat;
+  }
+  .mainBrand4{
+    width: 190px;
+    height: 286px;
+    border-radius: 20px;
+    background: url(./components/img/mainBrand4.svg) no-repeat;
+    align-self: flex-end;
+  }
+  .aboutMain {
+    display: flex;
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+}
+.aboutLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 45%;
+}
+.aboutLeft h1 {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 66.129px;
+    line-height: 82px;
+    color: #2E401C;
+}
+.aboutLeft h3 {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25.7143px;
+    line-height: 31px;
+    color: #2E401C;
+}
+.aboutRight {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 55%;
+}
+.aboutImg1 {
+    position: absolute;
+    width: 343.12px;
+    height: 493.17px;
+    background: url(./components/img/aboutImg1.svg);
+    border-radius: 20px;
+    left: 240px;
+    margin-top:  140px;
+    z-index: 1;
+}
+.aboutImg2 {
+    position: absolute;
+    width: 343.12px;
+    height: 493.17px;
+    left: 70px;
+    background: url(./components/img/aboutImg2.svg);
+    border-radius: 20px;
+    transform: rotate(-13.12deg);
+}
+.arnament {
+    position: absolute;
+    width: 75px;
+    height: 100vh;
+    right: 3%;  
+    background: url(./components/img/arnament.svg) repeat-y;
+  }
+  .contactsMain {
+    width: 80%;
+    height: 100vh;
+    margin: 80px auto;
+}
+.contactsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 614px;
+    background: #337347;
+}
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+.contactHeader p{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 42px;
+    color: #FFFFFF;
+}
+.callUs {
+    display: flex;
+    flex-direction: column;
+    /*ustify-content: space-around;*/
+    align-items: center;
+    box-sizing: border-box;
+    width: 265px;
+    height: 265px;
+    left: 310px;
+    top: 367px;
+    border: 3px dashed #FFFFFF;   
+    border-radius: 50%;     
+}
+.callUs h3 {
+    padding-top: 54px;
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF; 
+}
+.callUs h1{
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.contactIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+.contactLineItems {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+    width: 170px;
+}
+.contactLineItems h3 {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.mailIcon {
+    width: 20px;
+    height: 18px;
+    background: url(./components/img/mailIcon.svg) no-repeat;
+}
+.addressIcon {
+    width: 18px;
+    height: 22px;
+    background: url(./components/img/addressIcon.svg) no-repeat;
+}
+.contactMap {
+    margin: auto;
+    width: 420px;
+    height: 472px;
+    background: url(./components/img/Bishkek.svg) no-repeat;
 }
