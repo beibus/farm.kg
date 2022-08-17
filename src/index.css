@@ -225,14 +225,46 @@ main {
     border-radius: 20px;
     transform: rotate(-13.12deg);
 }
-.arnament {
-    position: absolute;
-    width: 75px;
-    height: 100vh;
-    right: 3%;  
-    background: url(./components/img/arnament.svg) repeat-y;
-  }
-  .contactsMain {
+.companies{
+  display: flex;
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+}
+.companiesNav {
+
+}
+.companiesComponent {
+  height: 510px;
+  width: 285px;
+}
+.companieName {
+  width: 119px;
+  height: 43px;
+}
+.companieName p {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 43px;
+  
+  color: #2E401C;
+}
+.companieLogo {
+
+}
+.companieMore {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6.56327px 90.2449px 6.56327px 91.8857px;
+    gap: 6.56px;
+    width: 201px;
+    height: 43.13px;
+}
+.contactsMain {
     width: 80%;
     height: 100vh;
     margin: 80px auto;

@@ -15,22 +15,22 @@
         {
             "id": "1",
             "name": "Shoro",
-            "logoMainPage": "./components/img/suparaMain.svg"
+            "logoMainPage": "/static/media/suparaMain.svg"
         },
         {
             "id": "2",
             "name": "Supara",
-            "logoMainPage": "./components/img/soroMain.svg"
+            "logoMainPage": "/static/media/soroMain.svg"
         },
         {
             "id": "3",
             "name": "Kyrgyz Chocolate",
-            "logoMainPage": "./components/img/KyrgyzChocolateMain.svg"
+            "logoMainPage": "/static/media/KyrgyzChocolateMain.svg"
         },
         {
             "id": "4",
             "name": "Nukura",
-            "logoMainPage": "./components/img/nukuraMain.svg"
+            "logoMainPage": "/static/media/nukuraMain.svg"
         }
     ],
     "companiesMore": "More"

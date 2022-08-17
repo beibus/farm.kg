@@ -8,10 +8,17 @@ function App() {
   const [text, setText] = useState([]);
 
     useEffect(() => {
-      fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-front/dev/src/components/data/main_en.json')
+      fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json')
         .then(res => res.json())
         .then(data => setText(data))
     }, []);
+  const [comp, setComp] = useState([]);
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json')
+      .then(res => res.json())
+      .then(data => setComp(data.companies))
+  }, []);
 
   return (
     <>
@@ -67,11 +74,14 @@ function App() {
 {/*  Блок компании  */}
       <div id='companies' className='content'>
           <div className='companies'>
+
             <div className='companiesNav'></div>
-            <div className='companiesRotate'>
-              <div className='companieName'></div>
-              <div className='companieLogo'></div>
-              <div className='companieMore'></div>
+            <div className='companie'>
+              {comp.map(post => { return (
+                  <div className='companie'><p>{post.name}</p>
+                  <img src={post.logoMainPage} alt={post.name}></img>
+                  <p>{text.companiesMore}</p></div>
+              )})}
             </div>
           </div>
       </div>
