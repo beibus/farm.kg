@@ -32,6 +32,66 @@
             "name": "Nukura",
             "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/nukuraMain.svg"
         }
+        {
+            "id": "5",
+            "name": "Shoro",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/shoroMain.svg"
+        },
+        {
+            "id": "6",
+            "name": "Supara",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/suparaMain.svg"
+        },
+        {
+            "id": "7",
+            "name": "Kyrgyz Chocolate",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/KyrgyzChocolateMain.svg"
+        },
+        {
+            "id": "8",
+            "name": "Nukura",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/nukuraMain.svg"
+        }
+        {
+            "id": "9",
+            "name": "Shoro",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/shoroMain.svg"
+        },
+        {
+            "id": "10",
+            "name": "Supara",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/suparaMain.svg"
+        },
+        {
+            "id": "11",
+            "name": "Kyrgyz Chocolate",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/KyrgyzChocolateMain.svg"
+        },
+        {
+            "id": "12",
+            "name": "Nukura",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/nukuraMain.svg"
+        }
+        {
+            "id": "13",
+            "name": "Shoro",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/shoroMain.svg"
+        },
+        {
+            "id": "14",
+            "name": "Supara",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/suparaMain.svg"
+        },
+        {
+            "id": "15",
+            "name": "Kyrgyz Chocolate",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/KyrgyzChocolateMain.svg"
+        },
+        {
+            "id": "16",
+            "name": "Nukura",
+            "logoMainPage": "https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/img/nukuraMain.svg"
+        }
     ],
     "companiesMore": "More"
 }

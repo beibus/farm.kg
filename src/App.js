@@ -80,7 +80,7 @@ console.log(comp);
               {comp.map(post => { return (
                   <div className='companie'><h1>{post.name}</h1>
                   <img src={post.logoMainPage} alt={post.name}></img>
-                  <h3>{text.companiesMore}</h3></div>
+                  <div className='morebutton'><h3>{text.companiesMore}</h3></div></div>
               )})}
             </div>
           </div>
