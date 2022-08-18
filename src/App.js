@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import logo from './components/img/logo.svg';
 import language from './components/img/language.svg';
+import { Modal } from './components/modal.jsx';
 
 function App() {
   const [text, setText] = useState([]);
@@ -19,7 +20,14 @@ function App() {
       .then(res => res.json())
       .then(data => setComp(data.companies))
   }, []);
-console.log(comp);
+
+  const [modalActive, setModalActive] = useState(false);
+  const [companieID, setCompanieID] = useState('');
+  const openModalId = (id) => {
+    setModalActive(true);
+    setCompanieID(id);
+  }
+
   return (
     <>
     <header>
@@ -77,14 +85,30 @@ console.log(comp);
 
             <div className='companiesNav'></div>
             <div className='companieRotate'>
-              {comp.map(post => { return (
-                  <div className='companie'><h1>{post.name}</h1>
+              {comp.slice(0, 6).map(post => { return (
+                  <div id={post.id} className='companie'><h1>{post.name}</h1>
                   <img src={post.logoMainPage} alt={post.name}></img>
-                  <div className='morebutton'><h3>{text.companiesMore}</h3></div></div>
+                  <div className='morebutton' onClick={() => openModalId(post.id)}><h3>{text.companiesMore}</h3></div></div>
               )})}
             </div>
           </div>
       </div>
+{/* Модалка Компании */}
+      <Modal active={modalActive} setActive={setModalActive} id={companieID}>
+                <div className='singlCompanie'>
+                  <div className='left'>
+                    <h1>Supara</h1>
+                    <h3>Products "Supara talkan" from natural organic products in Belgian chocolate.
+Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic walnuts, prunes and pistachios are covered with high quality Belgian chocolate. Contains no sugar, colors, flavors or preservatives.</h3>
+                  </div>
+                  <div className='right'>
+                    <div className='logo'></div>
+                    <div className='url'><p>Supara</p></div>
+                  </div>
+                </div>
+                <div className='companieSlided'></div>
+      </Modal>
+{/* Конец модалки Компании */}
 {/*  Конец блока компании  */}
 {/*  Блок Контакты  */}
         <div id='contacts' className='content'>
