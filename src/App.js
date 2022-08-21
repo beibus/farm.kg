@@ -25,21 +25,21 @@ function App() {
   }
 
 // Старый файл текст
-  const [text, setText] = useState([]);
+/*  const [text, setText] = useState([]);
 
     useEffect(() => {
       fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json')
         .then(res => res.json())
         .then(data => setText(data))
-    }, []);
+    }, []);*/
 
   // AbuotUS Data
   const [textAboutUs, setTextAboutUs] = useState([]);
   useEffect(() => {
     const getAboutUs = async () => {
-      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/about_us.json', {method: "GET"})
+      const res = await fetch('https://farm-kg.herokuapp.com/about_us/', {method: "GET"})
       .then(res => res.json())
-      .then(data => setTextAboutUs(data))
+      .then(data => setTextAboutUs(data[0]))
     }
     getAboutUs()
   }, [])
@@ -54,7 +54,7 @@ function App() {
   useEffect( () => {
     const getCompanies = async () => {
       setLoading(true);
-      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/company.json', {method: "GET"})
+      const res = await fetch('https://farm-kg.herokuapp.com/company/', {method: "GET"})
       .then(res => res.json())
       .then(data => setCompanies(data));
       setLoading(false)
@@ -70,6 +70,17 @@ function App() {
   const paginate = pageNumber => setCurrentPage(pageNumber);
   const nextPage = () => setCurrentPage( prev => prev + 1);
   const backPage = () => setCurrentPage( prev => prev - 1);
+
+  // Contact Data
+  const [textContact, setTextContact] = useState([]);
+  useEffect(() => {
+    const getContact = async () => {
+      const res = await fetch('https://farm-kg.herokuapp.com/contacts/', {method: "GET"})
+      .then(res => res.json())
+      .then(data => setTextContact(data[0]))
+    }
+    getContact()
+  }, [])
 
 
   //Модалка - Пока не нужна
@@ -150,7 +161,7 @@ function App() {
                   <div className='morebutton'><h3>{text.companiesMore}</h3></div></div>
               )})}
 */}
-                <Companies companies={currentCompanies} loading={loading} text={text} />
+                <Companies companies={currentCompanies} loading={loading} t={t} />
           </div>
       </div>
 {/* Модалка Компании */}{/*}
@@ -175,19 +186,19 @@ Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic
           <div className="contactsMain">
             <div className="contactsContent">
                 <div className='leftColumn'>
-                    <div className='contactHeader'><p>{text.contactContactUs}</p></div>
+                    <div className='contactHeader'><p>{t('contactContactUs')}</p></div>
                     <div className='callUs'>
-                        <h3>{text.contactCallUs}</h3>
-                        <h1>{text.contactPhone}</h1>
+                        <h3>{t('contactCallUs')}</h3>
+                        <h1>{textContact.phone_number}</h1>
                     </div>
                     <div className='contactIcon'>
                         <div className='contactLineItems'>
                             <div className='mailIcon'></div>
-                            <h3>{text.contactMain}</h3>
+                            <h3>{textContact.email}</h3>
                         </div>
                         <div className='contactLineItems'>
                             <div className='addressIcon'></div>
-                            <h3>{text.contactAddress}</h3>
+                            <h3>{language === 'ru' ? textContact.address : textContact.address}</h3>
                         </div>
                     </div>
                 </div>
