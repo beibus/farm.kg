@@ -37,12 +37,11 @@ function App() {
   const [textAboutUs, setTextAboutUs] = useState([]);
   useEffect(() => {
     const getAboutUs = async () => {
-      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/about_us.json')
+      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/about_us.json', {method: "GET"})
       .then(res => res.json())
       .then(data => setTextAboutUs(data))
     }
     getAboutUs()
-    console.log (textAboutUs.id)
   }, [])
 
   //Pagination Companies
@@ -123,9 +122,8 @@ function App() {
         <div className="arnamentRight"></div>
         <div className="aboutMain">
             <div className="aboutLeft">
-                <h1>{language === 'ru' ? `textRu` : `textEn`}</h1>
-                <h3>{text.aboutText}</h3>
-                {  console.log(textAboutUs.name_en)}
+                <h1>{language === 'ru' ? textAboutUs.name_ru : textAboutUs.name_en}</h1>
+                <h3>{language === 'ru' ? textAboutUs.text_ru : textAboutUs.text_en}</h3>
             </div>
             <div className="aboutRight">
                 <div className='aboutImg1'></div>
