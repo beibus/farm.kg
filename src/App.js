@@ -54,9 +54,9 @@ function App() {
   useEffect( () => {
     const getCompanies = async () => {
       setLoading(true);
-      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json', {method: "GET"})
+      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/company.json', {method: "GET"})
       .then(res => res.json())
-      .then(data => setCompanies(data.companies));
+      .then(data => setCompanies(data));
       setLoading(false)
     }
 
