@@ -125,7 +125,7 @@ function App() {
             <div className="aboutLeft">
                 <h1>{language === 'ru' ? `textRu` : `textEn`}</h1>
                 <h3>{text.aboutText}</h3>
-                {  console.log(textAboutUs)}
+                {  console.log(textAboutUs.name_en)}
             </div>
             <div className="aboutRight">
                 <div className='aboutImg1'></div>
