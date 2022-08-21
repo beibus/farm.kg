@@ -24,19 +24,6 @@ function App() {
     }
   }
 
-  const [textAboutUs, setTextAboutUs] = useState([]);
-  useEffect( () => {
-    const getAboutUs = async () => {
-      setLoading(true);
-      const res = await fetch('https://farm-kg.herokuapp.com/about_us/', {method: "GET"})
-      .then(res => res.json())
-      .then(data => setTextAboutUs(data));
-      setLoading(false)
-    }
-
-    getAboutUs()
-  }, [])
-
 // Старый файл текст
   const [text, setText] = useState([]);
 
@@ -45,6 +32,18 @@ function App() {
         .then(res => res.json())
         .then(data => setText(data))
     }, []);
+
+  // AbuotUS Data
+  const [textAboutUs, setTextAboutUs] = useState([]);
+  useEffect(() => {
+    const getAboutUs = async () => {
+      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/about_us.json')
+      .then(res => res.json())
+      .then(data => setTextAboutUs(data))
+    }
+    getAboutUs()
+    console.log (textAboutUs.id)
+  }, [])
 
   //Pagination Companies
 
@@ -124,7 +123,7 @@ function App() {
         <div className="arnamentRight"></div>
         <div className="aboutMain">
             <div className="aboutLeft">
-                <h1>{language === 'ru' ? `${textAboutUs.name_ru}` : textAboutUs.name_en}</h1>
+                <h1>{language === 'ru' ? `textRu` : `textEn`}</h1>
                 <h3>{text.aboutText}</h3>
                 {  console.log(textAboutUs)}
             </div>
