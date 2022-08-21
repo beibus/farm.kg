@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 
 import logo from './components/img/logo.svg';
 import language from './components/img/language.svg';
-import { Modal } from './components/modal.jsx';
+import { Companies } from './components/companies';
+import { Pagination } from './components/pagination';
+//import { Modal } from './components/modal.jsx';
 
 function App() {
   const [text, setText] = useState([]);
@@ -13,20 +15,50 @@ function App() {
         .then(res => res.json())
         .then(data => setText(data))
     }, []);
-  const [comp, setComp] = useState([]);
+ /* const [comp, setComp] = useState([]);
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json')
       .then(res => res.json())
       .then(data => setComp(data.companies))
-  }, []);
+  }, []);*/
 
-  const [modalActive, setModalActive] = useState(false);
+  //Pagination Companies
+
+  const [companies, setCompanies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [companiesPerPage] = useState(6);
+
+  useEffect( () => {
+    const getCompanies = async () => {
+      setLoading(true);
+      const res = await fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json', {method: "GET"})
+      .then(res => res.json())
+      .then(data => setCompanies(data.companies));
+      setLoading(false)
+    }
+
+    getCompanies()
+  }, [])
+
+  const lastCompanieIndex = currentPage * companiesPerPage;
+  const fistCompaniesIndex = lastCompanieIndex - companiesPerPage;
+  const currentCompanies = companies.slice(fistCompaniesIndex, lastCompanieIndex);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const nextPage = () => setCurrentPage( prev => prev + 1);
+  const backPage = () => setCurrentPage( prev => prev - 1);
+
+
+  //Модалка - Пока не нужна
+
+  /*const [modalActive, setModalActive] = useState(false);
   const [companieID, setCompanieID] = useState('');
   const openModalId = (id) => {
     setModalActive(true);
     setCompanieID(id);
-  }
+  }*/
 
   return (
     <>
@@ -82,18 +114,25 @@ function App() {
 {/*  Блок компании  */}
       <div id='companies' className='content'>
           <div className='companies'>
-
-            <div className='companiesNav'></div>
-            <div className='companieRotate'>
-              {comp.slice(0, 6).map(post => { return (
+            <div className='companiesNav'>
+              <div className="btnBack" onClick={backPage}></div>
+              <Pagination 
+              companiesPerPage={companiesPerPage}
+              totalCompanies={companies.length}
+              paginate={paginate}
+            />
+              <div className="btmNext" onClick={nextPage}></div> 
+            </div>
+{/*              {companies.map(post => { return (
                   <div id={post.id} className='companie'><h1>{post.name}</h1>
                   <img src={post.logoMainPage} alt={post.name}></img>
-                  <div className='morebutton' onClick={() => openModalId(post.id)}><h3>{text.companiesMore}</h3></div></div>
+                  <div className='morebutton'><h3>{text.companiesMore}</h3></div></div>
               )})}
-            </div>
+*/}
+                <Companies companies={currentCompanies} loading={loading} text={text} />
           </div>
       </div>
-{/* Модалка Компании */}
+{/* Модалка Компании */}{/*}
       <Modal active={modalActive} setActive={setModalActive} id={companieID}>
                 <div className='singlCompanie'>
                   <div className='left'>
@@ -107,7 +146,7 @@ Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic
                   </div>
                 </div>
                 <div className='companieSlided'></div>
-      </Modal>
+      </Modal>*/}
 {/* Конец модалки Компании */}
 {/*  Конец блока компании  */}
 {/*  Блок Контакты  */}

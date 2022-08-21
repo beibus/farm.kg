@@ -54,6 +54,9 @@ header {
 .mainMenu a:hover {
   text-decoration: underline;
 }
+.mainMenu a:active {
+  color: #FFB703;
+}
 .search {
   display: flex;
   margin-left: 5%;
@@ -227,12 +230,61 @@ main {
 }
 .companies{
   display: flex;
+  flex-direction: column;
   width: 80%;
-  height: 1475px;
+  height: 100%;
   margin: auto;
 }
 .companiesNav {
-
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.companiesNav ul {
+  display: flex;
+  padding-inline-start: 0;
+}
+.companiesNav li {
+  list-style: none;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #337347;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.companiesNav li a {
+  width: 6px;
+  height: 12px;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  color: #337347;
+}
+.companiesNav li:active {
+  background: rgba(51, 115, 71, 0.52);
+}
+.companiesNav li a:active {
+  color: #FFF4F4;
+}
+.btnBack {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  padding-right: 85px;
+  background: url(./components/img/backicon.svg) no-repeat;
+}
+.btmNext {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  padding-left: 85px;
+  background: url(./components/img/backicon.svg) no-repeat;
+  transform: rotate(180deg);
 }
 .companieRotate {
   width: 100%;
@@ -248,8 +300,7 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 22px;
-  height: 510px;
+  height: 100%;
   width: 285px;
 }
 .companieName {
@@ -281,6 +332,7 @@ main {
   align-items: center;
   width: 201px;
   height: 43.13px;
+  margin-top: 22px;
   background: #337347;
   border-radius: 8.20408px 0px;
 }
@@ -324,7 +376,7 @@ main {
   width: 40%;
   padding-right: 2%;
 }
-.logo {
+.singlCompanie .rigth .logo {
   width: 380px;
   height: 401px;
   background: url(./components/img/singlLogaSupara.svg);
@@ -335,7 +387,7 @@ main {
 .contactsMain {
     display: flex;
     width: 80%;
-    height: 100vh;
+    height: 100%;
     margin: 80px auto;
 }
 .contactsContent {
