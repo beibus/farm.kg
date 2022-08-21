@@ -1,13 +1,43 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import logo from './components/img/logo.svg';
-import language from './components/img/language.svg';
+import languageBtn from './components/img/language.svg';
 import { Companies } from './components/companies';
 import { Pagination } from './components/pagination';
+import useLocalStorage from './components/hooks/use-localstorage';
+import i18n from './i18n';
 //import { Modal } from './components/modal.jsx';
 
 function App() {
+  const {t} = useTranslation();
+  const [language, setLanguage] = useLocalStorage('language', 'ru');
+  const handleLanguageChange = () => {
+    if (language === 'en'){
+      i18n.changeLanguage('ru');
+      setLanguage('ru')
+    }
+    if (language === 'ru'){
+      i18n.changeLanguage('en');
+      setLanguage('en')
+    }
+  }
+
+  const [textAboutUs, setTextAboutUs] = useState([]);
+  useEffect( () => {
+    const getAboutUs = async () => {
+      setLoading(true);
+      const res = await fetch('https://farm-kg.herokuapp.com/about_us/', {method: "GET"})
+      .then(res => res.json())
+      .then(data => setTextAboutUs(data));
+      setLoading(false)
+    }
+
+    getAboutUs()
+  }, [])
+
+// Старый файл текст
   const [text, setText] = useState([]);
 
     useEffect(() => {
@@ -15,13 +45,6 @@ function App() {
         .then(res => res.json())
         .then(data => setText(data))
     }, []);
- /* const [comp, setComp] = useState([]);
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/ChilikinAM/farm.kg-Landing/main/src/components/data/main_en.json')
-      .then(res => res.json())
-      .then(data => setComp(data.companies))
-  }, []);*/
 
   //Pagination Companies
 
@@ -65,15 +88,15 @@ function App() {
     <header>
         <div className='logo'><a href='/'><img src={logo} alt="{text.mainHeader}"></img></a></div>
         <div className='mainMenu'>
-                <a href='/#about'>{text.menuAbout}</a>
-                <a href='/#companies'>{text.menuCompanies}</a>
-                <a href='/#contacts'>{text.menuContacts}</a>
+                <a href='/#about'>{t('menuAbout')}</a>
+                <a href='/#companies'>{t('menuCompanies')}</a>
+                <a href='/#contacts'>{t('menuContacts')}</a>
         </div>
         <div className='search'>
             <input></input>
         </div>
-        <div className='language'>
-            <img src={language} alt=''></img>
+        <div className='language' onClick={handleLanguageChange}>
+            <img src={languageBtn} alt='Сменить язык' onClick={handleLanguageChange}></img>
         </div>
     </header>
     <main>
@@ -83,8 +106,8 @@ function App() {
         <div className="arnamentRight"></div>
         <div className="homepageMain">
             <div className='mainContent'>
-                <div className='slogan'><h1>{text.mainHeader}</h1>
-                <h3>{text.mainSlogan}</h3>
+                <div className='slogan'><h1>{t('mainHeader')}</h1>
+                <h3>{t('mainSlogan')}</h3>
                 </div>
                 <div className='mainBrandsPhoto'>
                     <div className='mainBrand1'></div>
@@ -101,8 +124,9 @@ function App() {
         <div className="arnamentRight"></div>
         <div className="aboutMain">
             <div className="aboutLeft">
-                <h1>{text.aboutOurMission}</h1>
+                <h1>{language === 'ru' ? `${textAboutUs.name_ru}` : textAboutUs.name_en}</h1>
                 <h3>{text.aboutText}</h3>
+                {  console.log(textAboutUs)}
             </div>
             <div className="aboutRight">
                 <div className='aboutImg1'></div>
