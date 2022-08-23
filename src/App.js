@@ -110,7 +110,8 @@ function App() {
     </header>
     <main>
 {/* Блок первый */}
-      <div id='first' className='content'>
+    <section id='first'>
+      <div className='content'>
         <div className="arnamentLeft"></div>
         <div className="arnamentRight"></div>
         <div className="homepageMain">
@@ -127,9 +128,11 @@ function App() {
             </div>    
         </div>
       </div>
+      </section>
 {/*  Конец первого блока */}
 {/*  Блок о нас  */}
-      <div id='about' className='content'>
+    <section id='about'>
+      <div className='content'>
         <div className="arnamentRight"></div>
         <div className="aboutMain">
             <div className="aboutLeft">
@@ -142,9 +145,11 @@ function App() {
             </div>
         </div>
       </div>
+      </section>
 {/*  Конец блока о нас  */}
 {/*  Блок компании  */}
-      <div id='companies' className='content'>
+    <section id='companies'>
+      <div className='content'>
           <div className='companies'>
             <div className='companiesNav'>
               <div className="btnBack" onClick={backPage}></div>
@@ -161,7 +166,7 @@ function App() {
                   <div className='morebutton'><h3>{text.companiesMore}</h3></div></div>
               )})}
 */}
-                <Companies companies={currentCompanies} loading={loading} t={t} />
+                <Companies companies={currentCompanies} loading={loading} t={t} language={language} />
           </div>
       </div>
 {/* Модалка Компании */}{/*}
@@ -180,9 +185,11 @@ Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic
                 <div className='companieSlided'></div>
       </Modal>*/}
 {/* Конец модалки Компании */}
+</section>
 {/*  Конец блока компании  */}
 {/*  Блок Контакты  */}
-        <div id='contacts' className='content'>
+      <section id='contacts'>
+        <div className='content'>
           <div className="contactsMain">
             <div className="contactsContent">
                 <div className='leftColumn'>
@@ -198,7 +205,7 @@ Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic
                         </div>
                         <div className='contactLineItems'>
                             <div className='addressIcon'></div>
-                            <h3>{language === 'ru' ? textContact.address : textContact.address}</h3>
+                            <h3>{language === 'ru' ? textContact.address_ru : textContact.address_en}</h3>
                         </div>
                     </div>
                 </div>
@@ -208,7 +215,7 @@ Supara talkan chocolates made from barley oatmeal, ghee, honey and local organic
             </div>
         </div>
       </div>
-
+      </section>
 {/*  Конец блока контакты  */}
     </main>
   </>
